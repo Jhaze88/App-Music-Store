@@ -1,0 +1,61 @@
+<a routerLink="login" class="logOut">Log Out</a>
+<div class="contenitoreForm">
+  <form #f="ngForm" (ngSubmit)="loadTracks(f)">
+    <input
+      type="text"
+      name="artist"
+      id="artist"
+      placeholder="Song../Artist..."
+      ngModel
+    />
+    <br />
+    <br />
+    <button type="submit" class="btn">Let's Song</button>
+  </form>
+</div>
+<br />
+<div class="fascia"></div>
+<br />
+<br />
+<div class="wrapper">
+  <div class="playList" [hidden]="braniSelezionati.length === 0">
+    <h2>Favorite Songs</h2>
+    <div *ngFor="let brano of braniSelezionati; let i = index">
+      <h3>{{ brano.artistName }} - {{ brano.trackName }}</h3>
+      <input
+        type="checkbox"
+        class="checkboxOn"
+        name="checkbox"
+        [(ngModel)]="brano.selected"
+      />
+      <audio controls src="{{ brano.previewUrl }}"></audio>
+      <button class="btnRemove" (click)="delateSingletrack(i)">-</button>
+    </div>
+    <div>
+      <label for="checkbox" class="forCheck">
+        <input
+          type="checkbox"
+          id="checkbox"
+          [(ngModel)]="checkSelected"
+          (change)="checkUncheck()"
+        />
+        Select All
+      </label>
+      <button class="btnDelate" (click)="delateAllCheckBox()">
+        Delete All
+      </button>
+    </div>
+  </div>
+  <div class="tracks" *ngIf="listOfTracks">
+    <h2>Playlist</h2>
+    <div *ngFor="let track of listOfTracks">
+      <h3>{{ track.artistName }} - {{ track.trackName }}</h3>
+      <audio controls src="{{ track.previewUrl }}"></audio>
+      <button class="btnAdd" (click)="favoriteTrack(track)" title="Add Song">
+        +
+      </button>
+    </div>
+  </div>
+</div>
+<br />
+<br />

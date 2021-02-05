@@ -1,0 +1,78 @@
+<div class="contenitore">
+    <form #f="ngForm" (ngSubmit)="registra(f)">
+        <input type="text"
+               id="nominativo"
+               class="nominativo"
+               name="nominativo"
+               placeholder="Name & Surname"
+               ngModel #nominativo="ngModel"
+               [pattern]="patternNominativo"
+
+        >
+        <br>
+        <span class="err"
+              *ngIf="(nominativo.touched || nominativo.invalid) && nominativo.errors?.pattern" 
+        >
+           {{erroreNominativo}}   
+        </span>
+        <span class="valid"
+              [hidden]="nominativo.value.length === 0 || nominativo.invalid"
+        >
+            {{validoNominativo}}
+        </span>
+        <br>
+        <br>
+        <input type="email"
+               id="email"
+               class="email"
+               name="email"
+               placeholder="E-mail address"
+               ngModel #email="ngModel"
+               [pattern]="patternEmail"
+
+        >
+        <br>
+        <span class="err"
+              *ngIf="(email.touched || email.dirty || email.invalid) && email.errors?.pattern"
+        >
+            {{erroreEmail}}
+        </span>
+        <span class="valid"
+              [hidden]="email.value.length === 0 || email.invalid"
+        >
+            {{validoEmail}}
+        </span>
+        <br>
+        <br>
+        <input type="password"
+               id="password"
+               class="password"
+               name="password"
+               placeholder="Password"
+               ngModel #password="ngModel"
+               [pattern]="patternPassword"
+        >
+        <br>
+        <span class="err"
+              *ngIf="(password.touched || password.dirty || password.invalid) && password.errors?.pattern"
+        >
+            {{errorePass}}
+        </span>
+        <span class="valid"
+              [hidden]="password.value.length === 0 || password.invalid"
+        >
+            {{validoPass}}
+        </span>
+        <br>
+        <br>
+        <button type="submit"
+                id="signUp"
+                class="btn"
+                [disabled]="(nominativo.value.length === 0 || email.value.length === 0 || password.value.length === 0 || f.invalid)"
+        >
+            Sign Up
+        </button>
+        <br>
+        <a routerLink="login">Back</a>
+    </form>
+</div>

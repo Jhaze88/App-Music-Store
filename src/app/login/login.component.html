@@ -1,0 +1,54 @@
+<div id="contenitore">
+    <form #f="ngForm" (ngSubmit)="login(f)">
+        <input type="email"
+               id="email"
+               class="email"
+               placeholder="E-mail address"
+               name="email"
+               ngModel #email="ngModel"
+               [pattern]="patternEmail"
+               
+        >
+        <br>
+        <span class="err"
+              *ngIf="(email.touched || email.dirty || email.invalid) && email.errors?.pattern"
+        >
+            {{erroreEmail}}
+        </span>
+        <span class="valid"
+              [hidden]="email.value.length === 0 || email.invalid"
+        >
+            {{validoEmail}}
+        </span>
+        <br>
+        <br>
+        <input type="password"
+               id="password"
+               class="password"
+               placeholder="Password"
+               name="password"
+               ngModel #password="ngModel"
+               [pattern]="patternPassword"
+        >
+        <br>
+        <span class="err"
+              *ngIf="(password.touched || password.dirty || password.invalid) && password.errors?.pattern"
+        >
+              {{errorePass}}
+        </span>
+        <span class="valid"
+              [hidden]="password.value.length === 0 || password.invalid"
+        >
+              {{validoPass}}
+        </span>
+        <br>
+        <br>
+        <button type="submit"
+                id="login"
+                [disabled]="(email.value.length === 0 || password.value.length === 0 || f.invalid)"
+        >Log in
+        </button>
+        <br>
+        <a routerLink="/registrazione" id="signUp">Sign Up</a>
+    </form>
+</div>

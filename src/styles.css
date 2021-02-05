@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+    box-sizing: border-box;
+  }
+body{
+    font-family: 'Fredoka One', cursive; 
+    background: url(../src/assets/image/black2.jpg);
+    overflow-x: hidden;
+    width: 100%;
+}
+

@@ -1,0 +1,46 @@
+#contenitore{
+    width: 450px;
+    height : 400px;
+    text-align: center;
+    margin: 0 auto ;
+    
+}
+#email{
+    width: 350px;
+    height: 50px;
+    margin-bottom: 1em;
+    border-radius: 10px;
+    border: none;
+}
+#password{
+    width: 350px;
+    height: 50px;
+    margin-bottom: 1em;
+    border-radius: 10px;
+    border: none;
+}
+#login{
+    width: 250px;
+    height: 35px;
+    margin-bottom: 1em;
+    border-radius: 10px;
+    color: black;
+    background-color: #1db954;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+}
+#signUp{
+    text-decoration: none;
+    color: #1db954 ;
+    font-size: 18px;
+}
+#signUp:hover{
+    color: cornsilk;
+}
+.err{
+    color: red;
+}
+.valid{
+    color: #1db954;
+}
